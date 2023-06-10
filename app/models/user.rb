@@ -7,4 +7,11 @@ class User < ApplicationRecord
 
   validates :first_name, presence: true
   validates :last_name, presence: true
+
+  def full_name
+    "#{first_name} #{last_name}"
+    # Esta linea de arriba es basicamente un fstring
+    
+    # Las views no deben encargarse de calculos
+  end
 end

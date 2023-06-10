@@ -7,4 +7,7 @@ Rails.application.routes.draw do
 
 
   root "static_pages#home"
+
+  resources :tweets, except:[:update, :edit]
+
 end
