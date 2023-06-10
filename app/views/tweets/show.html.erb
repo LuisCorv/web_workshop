@@ -2,4 +2,5 @@
     <h1> Tweet info </h1>
 
     <%= render partial: "tweets/tweet", locals: {tweet:@tweet} %>
+    <%= button_to "Destroy",tweet_path , method: :delete, class:" btn btn-danger"%>
 </div>

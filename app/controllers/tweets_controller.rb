@@ -12,7 +12,27 @@ class TweetsController < ApplicationController
         @tweet=Tweet.new
     end
 
-    def created
-        
+    def create
+        tweet = Tweet.new(tweet_params)
+        tweet.user= current_user
+
+        if tweet.save
+            redirect_to tweet, notice:"Tweet made correctly"
+        else
+            render :new
+        end
+
+    end
+
+    def destroy
+        tweet=Tweet.find(params[:id])
+        tweet.destroy
+        redirect_to tweets_path, alert: "Tweet delete"
+    end
+
+
+    private
+    def tweet_params
+        params.require(:tweet).permit(:body)
     end
 end
