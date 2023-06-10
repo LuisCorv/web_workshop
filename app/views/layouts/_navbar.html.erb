@@ -11,6 +11,11 @@
         <li class="nav-item">
           <%= link_to "Home", root_path , class:"nav-link active"  %>
         </li>
+        <%if user_signed_in? %>
+          <li>
+            <%= button_to 'Logout?', destroy_user_session_path, method: :delete,  :class=> ' nav-link' %>
+          </li>
+        <%end  %>
     <!-- como hacer un comentario en html-->
       </ul>
       <form class="d-flex">
